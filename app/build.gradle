@@ -17,10 +17,14 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 android {
     signingConfigs {
         config {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
+            //keyAlias keystoreProperties['keyAlias']
+            //keyPassword keystoreProperties['keyPassword']
+            //storeFile file(keystoreProperties['storeFile'])
+            //storePassword keystoreProperties['storePassword']
+             storePassword = "$System.env.STORE_PASSWORD"
+             storeFile file("../key.jks")
+             keyAlias = "key"
+             keyPassword = "$System.env.ALIAS_PASSWORD"
         }
     }
     compileSdkVersion 30
